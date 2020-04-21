@@ -1,0 +1,38 @@
+module.exports = {
+  'database': {
+    'activa': 'oracle',
+    'mongo':{
+      'opciones' : { 
+        "useCreateIndex": true,
+        "useNewUrlParser": true, 
+        "useFindAndModify": false,
+        "useUnifiedTopology": true, 
+        "socketTimeoutMS": 0, 
+        "keepAlive": true, 
+        "reconnectTries": 30
+      },
+      'uri' : 'mongodb://mongoadmin:1234',
+      'ip' : 'localhost',
+      'puerto' : 27017,
+      'nombre' : 'USUARIOS'
+    },
+    'oracle':{
+      'usuario': 'usuario',
+      'password': 'contraseña',
+      'host': 'localhost',
+      'puerto': 1521,
+      'baseDatos': 'xe'
+    }    
+  },
+  "esquemas":[
+        {
+            "nombre": "usuarios",
+            "coleccion": "usuarios",
+            "definicion": {
+                "id": { type: String, unique: true, required: true, index: true},
+                "usuario": String,
+                "password": String
+            }
+        }
+    ]
+}
